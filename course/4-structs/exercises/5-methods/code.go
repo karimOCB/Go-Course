@@ -9,7 +9,7 @@ type authenticationInfo struct {
 
 // ?
 func (authI authenticationInfo) getBasicAuth() string {
-	return fmt.Sprintf("Authorization: Basic %s:%s", authI.username, authI.password)
+	return fmt.Sprintf("Authorization: Basic %s: %s", authI.username, authI.password)
 }
 
 // don't touch below this line
