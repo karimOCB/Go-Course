@@ -11,7 +11,12 @@ const (
 
 func getMessageWithRetriesForPlan(plan string) ([]string, error) {
 	allMessages := getMessageWithRetries()
-	// ?
+	if plan == planPro {
+		return allMessages[0:2], nil
+	} else if plan == planFree {
+		return allMessages[0:1], nil
+	}
+	return string, nil
 }
 
 // don't touch below this line
