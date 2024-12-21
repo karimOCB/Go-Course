@@ -1,9 +1,10 @@
-package main
+ package main
 
 import "fmt"
 
 func createMatrix(rows, cols int) [][]int {
-	// ?
+	matrix := make([][]int, 0)
+	
 }
 
 // dont edit below this line

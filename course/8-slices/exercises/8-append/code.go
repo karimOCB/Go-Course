@@ -8,10 +8,19 @@ type cost struct {
 }
 
 func getCostsByDay(costs []cost) []float64 {
-	// ?
+	costsByDay := []float64{}
+	for i := 0; i < len(costs); i++ {
+		cost := costs[i]
+		for cost.day >= len(costsByDay) {
+			costsByDay = append(costsByDay, 0.0)
+		}
+		costsByDay[cost.day] += cost.value
+	}
+	return costsByDay
 }
 
 // dont edit below this line
+// slice = append(slice, oneThing)
 
 func test(costs []cost) {
 	fmt.Printf("Creating daily buckets for %v costs...\n", len(costs))
