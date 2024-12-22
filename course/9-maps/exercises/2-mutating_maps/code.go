@@ -1,12 +1,26 @@
+// m is map, e = elem
+// Insert e: m[key] = e
+// Get e: e = m[key]
+// Delete e: delete(m, key)
+// Check if a key exists: e, ok := m[key]
+
 package main
 
 import (
 	"fmt"
 	"sort"
+	"errors"
 )
 
 func deleteIfNecessary(users map[string]user, name string) (deleted bool, err error) {
-	// ?
+	existingUser, ok := users[name]
+	if !ok {
+		return false, errors.New("not found")
+	} else if !existingUser.scheduledForDeletion {
+		return false, nil
+	}
+	delete(users, name)
+	return true, nil
 }
 
 // don't touch below this line

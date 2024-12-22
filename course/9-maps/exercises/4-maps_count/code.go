@@ -7,7 +7,11 @@ import (
 )
 
 func getCounts(userIDs []string) map[string]int {
-	// ?
+	usersMessagesReceived := make(map[string]int)
+	for _, id := range userIDs {
+		usersMessagesReceived[id]++
+	}
+	return usersMessagesReceived
 }
 
 // don't edit below this line
