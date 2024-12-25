@@ -9,7 +9,10 @@ import (
 // a single string and returns a function that formats two strings but prints
 // the result instead of returning it
 func getLogger(formatter func(string, string) string) func(string, string) {
-	// ?
+	return func(first string, second string) {
+		formatted := formatter(first, second)
+		fmt.Println(formatted) 
+	}
 }
 
 // don't touch below this line
