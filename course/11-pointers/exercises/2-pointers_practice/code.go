@@ -2,10 +2,20 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
 func removeProfanity(message *string) {
-	// ?
+	messageVal := *message
+	profanities := []string{"dang", "shoot", "heck"}
+	for _, profanity := range profanities {
+		asterik := ""
+		for i := 0; i < len(profanity); i++ {
+			asterik += "*"
+		} 
+		messageVal = strings.ReplaceAll(messageVal, profanity, asterik)
+	}
+	*message = messageVal
 }
 
 // don't touch below this line
