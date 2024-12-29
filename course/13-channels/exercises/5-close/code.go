@@ -6,7 +6,16 @@ import (
 )
 
 func countReports(numSentCh chan int) int {
-	// ?
+	counter := 0
+	for {
+		numOfReportsSent, ok := <-numSentCh
+		if !ok {
+			return counter
+		}
+		counter += numOfReportsSent
+		time.Sleep(time.Millisecond * 100)
+		fmt.Println(counter)
+	}	
 }
 
 // TEST SUITE - Don't touch below this line
